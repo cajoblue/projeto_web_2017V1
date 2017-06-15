@@ -13,8 +13,6 @@ $nome_user='';
 
 if(!empty($_POST)){
 	$password1 = ($_POST['password']);
-
-
     $email = $_POST['email'];
     $password = md5($password1);
     $nome_user= $_POST['nome_user'];

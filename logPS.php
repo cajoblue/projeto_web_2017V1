@@ -53,8 +53,8 @@
 
     </div>
 </div>
-</div>
-</div>
+
+
 
 <div id="footer">
     <p>Copyright &copy;. All rights reserved. Design by <a >TeenPower</a>     </p>

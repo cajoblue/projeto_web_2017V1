@@ -14,3 +14,6 @@ if($conn){
     echo "A conecção a base de dados:" .$database['adname']. "não foi bem sucedida";
 }
 
+
+
+?>

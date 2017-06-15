@@ -412,3 +412,83 @@ body{
     position: relative;
     margin-left: calc(50% - 140px)
 }
+
+.nome_utente{
+    position:absolute;
+    left: 36%;
+    top:58%;
+    font-size: 135%;
+
+}
+.nome_utente1{
+    position:absolute;
+    left: 36%;
+    top:63%;
+    font-size: 115%;
+
+}
+
+
+.nome{
+    position:absolute;
+    left:35%;
+    top:73%;
+}
+.data{
+    position:absolute;
+    left:35%;
+    top:83%;
+}
+.morada{
+    position:absolute;
+    left:35%;
+    top:93%;
+}
+
+.postal{
+    position:absolute;
+    left:54%;
+    top:83%;
+}
+.localidade{
+    position:absolute;
+    left:35%;
+    top:113%;
+}
+.sns{
+    position:absolute;
+    left:35%;
+    top:123%;
+}
+.cc{
+    position:absolute;
+    left:54%;
+    top:123%;
+}
+.email{
+    position:absolute;
+    left:35%;
+    top:103%;
+
+}
+.acesso{
+    position:absolute;
+    left:35%;
+    top:133%;
+}
+.pass{
+    position:absolute;
+    left:35%;
+    top:143%;
+}
+
+.enviar{
+    position:absolute;
+    left:35%;
+    top:131%;
+}
+.botao_editar{
+    position:absolute;
+    left:35%;
+    top:155%;
+}

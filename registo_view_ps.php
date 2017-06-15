@@ -58,7 +58,7 @@
                     
                         
                         <td><p class="line"><span>Password:</span></td>
-                        <td><input type="text" name="password" value="<?php echo gerarPass(8)?>;" required/></td>
+                        <td><input type="password" name="password" value="<?php echo gerarPass(8)?>;" disabled/></td>
                     </tr>                    
                 </table>
             <div id="center" class="column">

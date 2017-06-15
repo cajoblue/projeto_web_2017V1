@@ -11,7 +11,7 @@
 <div id="header">
     <a href="logA.php" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
     <div class="topblock2">
-        <h3><?php session_start();
+        <h3>Administrador<?php session_start();
             $email = $_SESSION['login'];
             echo $email; ?></h3>
         <a href="logout.php" class="float">Terminar Sessão</a>
@@ -60,7 +60,7 @@
                                         ?>
 
                                         <td><p class="line"><span>Password:</span></td>
-                                        <td><p><input type="text" name="password" value="<?php echo gerarPass(8)?>" require/></p></td>
+                                        <td><p><input type="password" name="password"  value="<?php echo gerarPass(8)?>" disabled /></p></td>
                                     </tr>
                                 </table>
                                 <div id="center" class="column">

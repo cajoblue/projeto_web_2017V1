@@ -9,9 +9,9 @@
 
 <body>
 <div id="header">
-    <a href="index.html" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
+    <a href="inicio.html" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
     <div class="topblock2">
-         <h3>Estudante</h3>
+        <h3>Estudante</h3>
         <h3><?php session_start();
         $email = $_SESSION['login']; 
         echo $email; ?></h3>
@@ -27,6 +27,7 @@
             <h1>Artigos</h1>
             <div id="content">
 
+                <a><img src="images/posts.png" alt="" width="500" height="800" /></a><br />
             </div>
         </div>
     </div>
@@ -35,23 +36,30 @@
             <h1>Menu</h1>
             <ul id="navigation">
                 <li class="color"><a href="menu_forum.php">Fórum</a></li>
-                <li class="color"><a href="#">Meu Perfil</a></li>
-                <li><a href="messages.php">Mensagens</a></li>
-                <li class="color"><a href="#">Ver Estudantes</a></li>
-                <li><a href="#">Ver Professores</a></li>
+                <li><a href="meu_perfil_e.php">Meu Perfil</a></li>
+                <li class="color"><a href="messages.php">Mensagens</a></li>
+                <li><a href="ver_estudantes_e.php">Ver Estudantes</a></li>
+                <li class="color"><a href="#">Ver Professores</a></li>
                 <li><a href="#">Ver Prof. Saúde</a></li>
+                <li class="color"><a href="#">Os Meus Artigos</a></li>
             </ul>
         </div>
 
     </div>
     <div id="right" class="column">
+        <ul id="navigation">
+            <li class="color"><a href="registar_peso.php">Registar Peso</a></li>
+            <li><a href="#">Registar nº horas de exercício</a></li>
+            <li class="color"><a href="calcular_imc.php">Calcular IMC</a></li>
+            <li><a href="#">Os Meus Dados</a></li>
+        </ul>
         <a><img src="images/utilizadoresativos.gif" alt="" width="237" height="260" /></a><br />
 
     </div>
     <div class="blocks">
 
-    </div>
-</div>
+    
+
 </div>
 </div>
 

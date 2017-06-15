@@ -35,11 +35,11 @@
         <div class="block">
             <h1>Menu</h1>
             <ul id="navigation">
-                <li class="color"><a href="menu_forum.php">Fórum</a></li>
-                <li class="color"><a href="#">Meu Perfil</a></li>
+               <li class="color"><a href="menu_forum_prof.php">Fórum</a></li>
                 <li><a href="#">Mensagens</a></li>
-                <li class="color"><a href="#">Ver Estudantes</a></li>
-                <li><a href="#">Ver Professores</a></li>
+                <li class="color"><a href="meu_perfil_prof.php">Meu Perfil</a></li>
+                <li><a href="ver_estudantes_prof.php">Ver Estudantes</a></li>
+                <li class="color"><a href="ver_prof_prof.php">Ver Professores</a></li>
                 <li><a href="#">Os Meus Artigos</a></li>
             </ul>
         </div>

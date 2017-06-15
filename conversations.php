@@ -114,9 +114,13 @@
 
 echo "<p><a href='delete_mp.php?hash=$hash'><img src='delete.png' alt='Smiley face' width='20' height='20'><a href='conversations.php?hash=$hash'>$select_username</a></p>";
 
+
                }
+
         }
+
 ?>
+
                 </div>
             </div>
         </div>

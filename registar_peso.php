@@ -21,8 +21,11 @@
 <div id="header">
     <a href="inicio.html" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
     <div class="topblock2">
-        <h4>Adolescente</h4>
-        <h5>username</h5>
+        <h3>Estudante</h3>
+        <h3><?php session_start();
+        $email = $_SESSION['login']; 
+        echo $email; ?></h3>
+        <a href="logout.php" class="float">Terminar Sessão</a>
     </div>
     <div id="footer">
     </div>
@@ -34,10 +37,10 @@
                 <br>
                 <form name="form1" method="post" action="adicionar_peso.php">
                     <strong>Peso Atual:</strong>
-                    <input type="text"  name="peso" id="peso" required></input>kgs
-                    <br><br>
+                    <input type="text"  name="peso" id="peso" required>
+                    <br>
                     <strong>Data:</strong>
-                    <input type="date"  name="datepicker" id="datepicker" required></input>
+                    <input type="date"  name="datepicker" id="datepicker" required>
                     <br><br>
                     &nbsp;
                     <input name="id" type="hidden" value=" ">
