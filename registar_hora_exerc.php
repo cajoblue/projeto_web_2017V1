@@ -25,14 +25,14 @@
     <div id="container">
         <div id="center" class="column">
             <div id="content">
-                <h1>Registar Peso</h1>
+                <h1>Registar tempo de exercício</h1>
                 <br>
-                <form name="form1" method="post" action="adicionar_peso.php">
-                    <strong>Peso:</strong>
-                    <input type="number"  step="any" placeholder="exemplo(kg):63.5 " name="peso" id="peso" required title="Insira o peso" ></input>
+                <form name="form1" method="post" action="save_hora_exerc.php">
+                    <strong>Tempo de exercíio:</strong>
+                    <input type="number" placeholder="Em minutos(60)min. " name="nr_horas" id="peso" required title="Insira o número de horas de exercicios que fez" ></input>
                     <br><br>
                     <strong>Data:</strong>
-                    <input type="date"  name="datepicker" id="datepicker" required></input>
+                    <input type="date"  name="data" id="datepicker" required></input>
                     <br><br>
                     <input type="submit" name="Submit" value="Guardar"> <input type="reset" name="Submit2" value="Apagar">
                 </form>

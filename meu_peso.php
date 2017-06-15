@@ -37,7 +37,7 @@ $jsonTable = json_encode($table);
     <title>Forum Teen Power</title>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-5">
-    <!--link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <!--Load the Ajax API-->
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -61,7 +61,8 @@ $jsonTable = json_encode($table);
                 title: 'Estatística do seu Peso Anual ',
                 width: 600, heigth: 300,
                 colors: ['#335070'],
-                legend: { position: 'bottom' }
+                legend: { position: 'bottom'
+              }
             };
             // Instantiate and draw our chart, passing in some options.
             // Do not forget to check your div ID

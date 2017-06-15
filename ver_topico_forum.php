@@ -27,7 +27,7 @@ $tbl_name="forum_question"; // Table name
 // get value of id that sent from address bar
 $id=$_GET['id'];
 
-$sql="SELECT * FROM $tbl_name WHERE id='$id'";
+$sql="SELECT * FROM forum_question WHERE id='$id'";
 
 $result=mysqli_query($conn,$sql);
 
@@ -38,9 +38,6 @@ while($row=mysqli_fetch_array($result)){
         echo "</tr>";
         echo "<tr>";
             echo "<td bgcolor=\"#F8F7F1\"><strong>".$row['detail']."</td>";
-        echo "</tr>";
-        echo "<tr>";
-            echo "<td bgcolor=\"#F8F7F1\"><strong>Data e Horas: </strong>".$row['datetime']."</td>";
         echo "</tr>";
 $i=$row['imagem'];
 $vazia="images/";
@@ -55,23 +52,13 @@ if ($i==$vazia) {
     }
 $tbl_name2="forum_answer"; // Switch to table "forum_answer"
 
-$sql2="SELECT * FROM $tbl_name2 WHERE question_id='$id'";
+$sql2="SELECT * FROM forum_answer WHERE id_question='$id'";
 $result2=mysqli_query($conn,$sql2);
 
 while($row=mysqli_fetch_array($result2)){
     echo "<table width=\"400\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"1\" >";
         echo "<tr>";
             echo " <td><table width=\"100%\" border=\"0\" cellpadding=\"3\" cellspacing=\"1\" bgcolor=\"#FFFFFF\">";
-        echo "<tr>";
-            echo "<td bgcolor=\"#F8F7F1\"><strong>Nome</strong></td>";
-            echo "<td bgcolor=\"#F8F7F1\">:</td>";
-            echo "<td bgcolor=\"#F8F7F1\">".$row['a_name']."</td>";
-        echo "</tr>";
-        echo "<tr>";
-            echo "<td bgcolor=\"#F8F7F1\"><strong>Email</strong></td>";
-            echo "<td bgcolor=\"#F8F7F1\">:</td>";
-            echo "<td bgcolor=\"#F8F7F1\">".$row['a_email']."</td>";
-        echo "</tr>";
         echo "<tr>";
             echo "<td bgcolor=\"#F8F7F1\"><strong>Comentário</strong></td>";
             echo "<td bgcolor=\"#F8F7F1\">:</td>";
@@ -91,11 +78,11 @@ while($row=mysqli_fetch_array($result2)){
         echo "<tr>";
             echo "<td bgcolor=\"#F8F7F1\"><strong>Data e Hora</strong></td>";
             echo "<td bgcolor=\"#F8F7F1\">:</td>";
-            echo "<td bgcolor=\"#F8F7F1\">".$row['a_datetime']."</td>";
+            echo "<td bgcolor=\"#F8F7F1\">".$row['data_reg']."</td>";
         echo "</tr>";
         echo "<tr>";
-            echo "<td bgcolor=\"#FFFFFF\"><a href='eliminar_comentario.php?id=".$row['a_id']."&question_id=".$row['question_id']."&imagem=".$row['a_imagem']."'>"."<img src=\"images/nocheck.jpg\" alt=\"\" width=\"31\" height=\"23\" />"." </a>"."</td>";
-            echo "<td bgcolor=\"#FFFFFF\"><a href='editar_coment.php?id=".$row['a_id']."&question_id=".$row['question_id']."'>"."<img src=\"images/EDITAR.\" alt=\"\" width=\"31\" height=\"23\" />"." </a>"."</td>";
+            echo "<td bgcolor=\"#FFFFFF\"><a href='eliminar_comentario.php?id=".$row['id']."&question_id=".$row['id_question']."&imagem=".$row['a_imagem']."'>"."<img src=\"images/nocheck.jpg\" alt=\"\" width=\"31\" height=\"23\" />"." </a>"."</td>";
+            echo "<td bgcolor=\"#FFFFFF\"><a href='editar_coment.php?id=".$row['id']."&question_id=".$row['id_question']."'>"."<img src=\"images/EDITAR.\" alt=\"\" width=\"31\" height=\"23\" />"." </a>"."</td>";
         echo "</tr>";
     echo "</table>";
     echo "<br>";
@@ -128,24 +115,9 @@ mysqli_close($conn);
             <td>
                 <table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
                     <tr>
-                        <td width="18%"><strong>Nome</strong></td>
-                        <td width="3%">:</td>
-                        <td width="79%"><input name="a_name" type="text" id="a_name" size="45" required></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Email</strong></td>
-                        <td>:</td>
-                        <td><input name="a_email" type="text" id="a_email" size="45" required></td>
-                    </tr>
-                    <tr>
                         <td valign="top"><strong>Comentário</strong></td>
                         <td valign="top">:</td>
                         <td><textarea name="a_answer" cols="45" rows="3" id="a_answer" required></textarea></td>
-                    </tr>
-                    <tr>
-                        <td valign="top"><strong>Selecione uma imagem:</strong></td>
-                        <td valign="top">:</td>
-                        <td><input name="arquivo" type="file"></td>
                     </tr>
                     <tr>
                         <td>&nbsp;</td>

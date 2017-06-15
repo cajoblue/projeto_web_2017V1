@@ -29,16 +29,16 @@ else {
     $mensagem = "Obesidade III (mórbida)";
 }
 
-$sql="INSERT INTO tb_dados (peso, altura, imc, mensagem)VALUES('$peso', '$altura', '$massa','$mensagem')";
-$result=mysqli_query($conn,$sql);
-
-if($result){
-    echo "<script>alert('O seu imc foi calculado com sucesso!');top.location.href='imc.php';</script>";
-}
-else {
-    echo "<script>alert(' Utilize na altura o ponto para separar os metros dos centimetros como no exemplo!');top.location.href='calcular_imc.php';</script>";
-
-
-}
-mysqli_close($conn);
+// $sql="INSERT INTO tb_dados (peso, altura, imc, mensagem)VALUES('$peso', '$altura', '$massa','$mensagem')";
+// $result=mysqli_query($conn,$sql);
+//
+// if($result){
+//     echo "<script>alert('O seu imc foi calculado com sucesso!');top.location.href='imc.php';</script>";
+// }
+// else {
+//     echo "<script>alert(' Utilize na altura o ponto para separar os metros dos centimetros como no exemplo!');top.location.href='calcular_imc.php';</script>";
+//
+//
+// }
+// mysqli_close($conn);
 ?>

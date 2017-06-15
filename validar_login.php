@@ -21,22 +21,22 @@ echo $p.'<br>';
 echo $t;
 if ( $email==$e && $password == $p)	{
     if( $t=="admin" ) {
-        //session_start();
+
         $_SESSION['login'] = $email;
         header ('Location: logA.php');
     }
     if( $t=="prof_saude" ) {
-        //session_start();
+
         $_SESSION['login'] = $email;
         header ('Location: logPS.php');
     }
     if( $t=="professor" ) {
-        //session_start();
+
         $_SESSION['login'] = $email;
         header ('Location: logP.php');
     }
     if( $t=="estudante" ) {
-        //session_start();
+
         $_SESSION['login'] = $email;
         header ('Location: logE.php');
     }
