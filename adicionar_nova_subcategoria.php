@@ -6,6 +6,9 @@ $nome=$_POST['nome'];
 $id_categoria=$_GET['id'];
 // Cria uma variável que terá os dados do erro
 // Encontra o numero de comentário mais alto
+if(empty($nome) || !preg_match("/^[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÇÈÉÊÌÍÒÓÔÕÙÚÛàáâãçèéêìíîòóôõùúû ]+$/", $nome)){
+  echo "<script>alert('Subcategoria inválida, tente de novo!');top.location.href='nova_subcategoria.php?id=$id_categoria';</script>";
+}else{
 
     // Inserir o comentário
     $sql2 = "INSERT INTO sub_categorias_forum(sub_categoria,id_categoria)VALUES('$nome',$id_categoria)";
@@ -17,6 +20,7 @@ $id_categoria=$_GET['id'];
 
 // Fechar conexão
     mysqli_close($conn);
+ }
 }
 
 ?>

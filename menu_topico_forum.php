@@ -49,7 +49,7 @@ echo"  <form action='novo_topico_forum.php?id=".$id."' method='POST'>"; ?>
     while($row=mysqli_fetch_array($result)){
         echo "<tr>";
         $i=$row['imagem'];
-        echo "<td bgcolor=\"#FFFFFF\"><a href='ver_topico.php?id=".$row['id']."'>".$row['topic']."</a><a href='eliminar_topico.php?id=".$row['id']."&imagem=".$row['imagem']."'><img src=\"images/nocheck.jpg\" alt=\"\" width=\"31\" height=\"23\" /></a><a href='editar_topico.php?id=".$row['id']."'><img src=\"images/EDITAR.\" alt=\"\" width=\"31\" height=\"23\" /></a><br></td>";
+        echo "<td bgcolor=\"#FFFFFF\"><a href='ver_topico_forum.php?id=".$row['id']."'>".$row['topic']."</a><a href='eliminar_topico.php?id=".$row['id']."&imagem=".$row['imagem']."'><img src=\"images/nocheck.jpg\" alt=\"\" width=\"31\" height=\"23\" /></a><a href='editar_topico.php?id=".$row['id']."'><img src=\"images/EDITAR.\" alt=\"\" width=\"31\" height=\"23\" /></a><br></td>";
         echo "<td align=\"center\" bgcolor=\"#FFFFFF\">".$row['view']."</td>";
         echo "<td align=\"center\" bgcolor=\"#FFFFFF\">".$row['reply']."</td>";
         echo "<td align=\"center\" bgcolor=\"#FFFFFF\">".$row['data_reg']."</td>";

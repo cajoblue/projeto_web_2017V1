@@ -19,10 +19,11 @@
 </div>
 <div id="container">
 <div id="center" >
-<?php
+  <?php
   $id=$_GET['id'];
+echo " <br> <a href='sub_categorias.php?id=".$id."'><button>Voltar Atrás</button></a>";
+
   echo"  <form action='adicionar_nova_subcategoria.php?id=".$id."' method='POST'>"; ?>
-    <br> <a href="menu_forum.php"><button>Voltar Atrás</button></a>
     <p>Nome da sub-Categoria:</p>
     <input type="text" name="nome" value=""><br>
     <input type="submit"  value="Registar">

@@ -19,8 +19,10 @@
 </div>
 <div id="container">
 <div id="center" >
+  <div class="">
+    <br> <a href="index_forum.php"><button>Voltar Atrás</button></a>
+  </div>
   <form action="adicionar_nova_categoria.php"  method="POST" >
-    <br> <a href="menu_forum.php"><button>Voltar Atrás</button></a>
     <p>Nome da Categoria:</p>
     <input type="text" name="nome" value=""><br>
     <input type="submit"  value="Registar">
