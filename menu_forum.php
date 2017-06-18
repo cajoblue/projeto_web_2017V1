@@ -13,6 +13,7 @@
     <div class="topblock2">
        <h3><?php session_start();
         $email = $_SESSION['login']; 
+        $email = $_SESSION['login'];
         echo $email; ?></h3>
          <a href="logout.php" class="float">Terminar Sessão</a>
     </div>
@@ -49,6 +50,7 @@ $result=mysqli_query($conn,$sql);
         echo "<td align=\"center\" bgcolor=\"#FFFFFF\">".$row['view']."</td>";
         echo "<td align=\"center\" bgcolor=\"#FFFFFF\">".$row['reply']."</td>";
         echo "<td align=\"center\" bgcolor=\"#FFFFFF\">".$row['datetime']."</td>";
+        echo "<td align=\"center\" bgcolor=\"#FFFFFF\">".$row['data_reg']."</td>";
         echo "</tr>";
     }
     // Exit looping and close connection
