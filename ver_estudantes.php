@@ -13,7 +13,7 @@
     <div class="topblock2">
          <h3>Administrador</h3>
         <h3><?php session_start();
-        $email = $_SESSION['login']; 
+        $email = $_SESSION['login'];
         echo $email; ?></h3>
          <a href="logout.php" class="float">Terminar Sessão</a>
     </div>
@@ -40,6 +40,7 @@
                 }while($row = mysqli_fetch_array($retval, MYSQLI_ASSOC)){// vai buscar ha base de dados os dados nela guardada e poem os na tabela
                     //echo "<tr><td>".$row['img_capa']."</td>";
                     echo "<td>".$row['email']."</td>";
+                    echo "<td>".$row['tipo']."</td>";
                     echo "<td>".$row['tipo']."</td>";
                     echo "</tr>";
                 }

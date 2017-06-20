@@ -29,8 +29,6 @@
             <form class="" action="forum_cosntrol.php" method="post">
     <?php include'connect.php'; ?>
     <?php include'functions.php'; ?>
-    <?php include'title_bar.php'; ?>
-
        <?php include'message_title_bar.php'; ?>
     <?php $my_id = $_SESSION['idUtilizador']; ?><!--passa para esta variavel do id da pessoa logada!-->
 </form>
@@ -90,7 +88,7 @@
     <?php
              }else{
 
-                    echo "<b> Select conversation: </b>";
+                    echo "<b> Selecione a conversa: </b>";
                 $sql = "SELECT hash,user_one,user_two FROM message_group where user_one='$my_id' OR user_two='$my_id'";
                 $result = mysqli_query($conn, $sql);
 
@@ -125,13 +123,14 @@ echo "<p><a href='delete_mp.php?hash=$hash'><img src='delete.png' alt='Smiley fa
         <div class="block">
             <h1>Menu</h1>
             <ul id="navigation">
-                <li class="color"><a href="index_view.php">Fórum</a></li>
-                <li><a href="messages.php">Mensagens</a></li>
-                <li class="color"><a href="#">Ver Estudantes</a></li>
-                <li><a href="#">Ver Professores</a></li>
-                <li class="color"><a href="#">Ver Prof. Saúde</a></li>
-                <li><a href="#">Os Meus Artigos</a></li>
-                <li><a href="logout.php">Sair</a></li>
+              <li class="color"><a href="meu_perfil_e.php">Meu Perfil</a></li>
+              <li><a href="index_forum.php">Fórum</a></li>
+              <li class="color"><a href="messages.php">Mensagens</a></li>
+              <li><a href="ver_estudantes_e.php">Ver Estudantes</a></li>
+              <li  class="color"><a href="#">Ver Professores</a></li>
+              <li><a href="#">Ver Prof. Saúde</a></li>
+              <li class="color"><a href="#">Os Meus Artigos</a></li>
+            
             </ul>
         </div>
 

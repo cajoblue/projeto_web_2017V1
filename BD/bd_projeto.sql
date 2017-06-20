@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 09-Jun-2017 às 08:53
--- Versão do servidor: 5.7.14
+-- Generation Time: Jun 18, 2017 at 10:26 PM
+-- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -23,88 +23,68 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `forum_answer`
+-- Table structure for table `categorias_forum`
 --
 
-CREATE TABLE `forum_answer` (
-  `question_id` int(30) DEFAULT NULL,
-  `a_id` int(11) DEFAULT NULL,
-  `a_name` varchar(100) DEFAULT NULL,
-  `a_email` varchar(100) DEFAULT NULL,
-  `a_answer` varchar(200) DEFAULT NULL,
-  `a_imagem` varchar(200) DEFAULT NULL,
-  `a_datetime` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `categorias_forum` (
+  `id` int(11) NOT NULL,
+  `categoria` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `forum_answer`
+-- Dumping data for table `categorias_forum`
 --
 
-INSERT INTO `forum_answer` (`question_id`, `a_id`, `a_name`, `a_email`, `a_answer`, `a_imagem`, `a_datetime`) VALUES
-(NULL, 1, 'sgs', 'sa', 's', NULL, '2012-05-17 14:07:42'),
-(NULL, 1, 'c', 'c', 'c', NULL, '2012-05-17 14:14:32'),
-(NULL, 1, 'joao', 'dd', 'n', NULL, '2012-05-17 14:10:30'),
-(8, 1, 'd', 'dad', 'dd', NULL, '2012-05-17 14:19:06'),
-(8, 2, 'n', 'n', 'n', NULL, '2012-05-17 14:19:19'),
-(8, 3, 'n', 'n', 'qw', NULL, '2012-05-17 14:19:29'),
-(8, 4, 'd', 'fd', 'd', NULL, '2012-05-17 14:20:21'),
-(5, 1, 'n', 'm', 'n', NULL, '2012-05-17 14:20:41'),
-(3, 1, 'n', 'n', 'n', NULL, '2012-05-17 14:20:57'),
-(2, 1, '', '', '', NULL, '2012-05-17 14:27:52'),
-(6, 1, 'f', 'ff', 'f', NULL, '2012-05-17 14:30:45'),
-(6, 2, '', '', '', NULL, '2012-05-17 14:30:53'),
-(5, 2, '', '', '', NULL, '2012-05-17 14:31:00'),
-(3, 2, '', '', '', NULL, '2012-05-17 14:31:06'),
-(2, 2, '', '', '', NULL, '2012-05-17 14:31:12'),
-(4, 1, '', '', '', NULL, '2012-05-17 14:31:24'),
-(4, 2, '', '', '', NULL, '2012-05-17 14:31:32'),
-(4, 3, '', '', '', NULL, '2012-05-17 14:31:36'),
-(4, 4, '', '', '', NULL, '2012-05-17 14:31:40'),
-(3, 3, '', '', '', NULL, '2012-05-17 14:32:04'),
-(9, 6, 'joao', 'josadas', 'joao', NULL, '2014-05-17 19:57:45'),
-(9, 7, 'celso', 'celso@gmail.com', 'muito bom', NULL, '2015-05-17 09:39:41'),
-(9, 8, 's', 'jooa@hotmail.com', 's', 'images/149554980059244768de6cd.jpg', '2023-05-17 14:30:00'),
-(25, 1, 'j', 'jooa@hotmail.com', 'n', 'imagens/', '2023-05-17 15:50:43'),
-(24, 6, 'h', 'jooa@hotmail.com', 'b', 'images/149588300759295cff96c7b.jpg', '2027-05-17 11:03:27'),
-(24, 7, 'k', 'jooa@hotmail.com', 'd', 'images/', '2027-05-17 11:07:22');
+INSERT INTO `categorias_forum` (`id`, `categoria`) VALUES
+(1, 'Alimentação'),
+(5, 'EuroVisÃ£o'),
+(4, 'Dieta'),
+(6, 'TrenÃ³');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `forum_question`
+-- Table structure for table `forum_answer`
+--
+
+CREATE TABLE `forum_answer` (
+  `id` int(30) NOT NULL,
+  `id_question` int(11) DEFAULT NULL,
+  `id_login` int(11) NOT NULL,
+  `a_answer` varchar(200) DEFAULT NULL,
+  `a_imagem` varchar(200) DEFAULT NULL,
+  `data_reg` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `forum_question`
 --
 
 CREATE TABLE `forum_question` (
   `id` int(11) NOT NULL,
+  `id_login` int(11) NOT NULL,
   `topic` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `detail` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `datetime` datetime DEFAULT NULL,
+  `data_reg` datetime DEFAULT NULL,
   `imagem` varchar(200) DEFAULT NULL,
   `view` int(200) DEFAULT NULL,
-  `reply` int(200) DEFAULT NULL
+  `reply` int(200) DEFAULT NULL,
+  `fk_subcategoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `forum_question`
+-- Dumping data for table `forum_question`
 --
 
-INSERT INTO `forum_question` (`id`, `topic`, `detail`, `name`, `email`, `datetime`, `imagem`, `view`, `reply`) VALUES
-(2, 'tabaco', 'faz mal', 'paulo', 'fdsfds', '2017-05-22 00:00:00', NULL, 18, 1),
-(3, 'tabaco', 'ssss', 'ss', 'ss', '2011-05-17 00:00:00', NULL, 11, 2),
-(9, 'desporto e bem estar', 'd', 'd', 'dsfs', '2012-05-17 02:10:14', NULL, 106, 7),
-(10, 'tabaco', 'd11', 'd111', 'd', '2014-05-17 23:21:51', NULL, 25, 1),
-(11, 'nao', 'ff', 'nad2332', 'f', '2015-05-17 08:39:21', NULL, 10, 2),
-(18, 'Comida', 'muita', 'Celso', 'celso@hotmail.com', '2023-05-17 14:28:49', NULL, 94, 1),
-(24, 'desporto e bem estar', 'dd', 'fdsf', 'joaogomes@hotmail.com', '2023-05-17 03:38:24', 'images/1495553904592457705fb3d.jpg', 58, 7),
-(25, 'joao', 'joao', 'd', 'joaogomes@hotmail.com', '2023-05-17 03:45:32', 'imagens/', 12, 1),
-(26, 'jao', 'dada', 'dsd', 'joaogomes@hotmail.com', '2027-05-17 11:09:44', 'images/', 4, NULL);
+INSERT INTO `forum_question` (`id`, `id_login`, `topic`, `detail`, `data_reg`, `imagem`, `view`, `reply`, `fk_subcategoria`) VALUES
+(1, 83, 'Salada', 'adoro', '2014-06-17 04:18:03', 'images/', 117, NULL, 1);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `login`
+-- Table structure for table `login`
 --
 
 CREATE TABLE `login` (
@@ -116,7 +96,7 @@ CREATE TABLE `login` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `login`
+-- Dumping data for table `login`
 --
 
 INSERT INTO `login` (`idUtilizador`, `email`, `password`, `nome_user`, `tipo`) VALUES
@@ -131,12 +111,14 @@ INSERT INTO `login` (`idUtilizador`, `email`, `password`, `nome_user`, `tipo`) V
 (71, 'maria@hotmail.com', '26fe523f8e85514cb702674a5adea793', 'maria', 'estudante'),
 (75, 'joaomiguelpinheirogomes20@gmail.com', '27cde2bd9fdafbec60d176d18fc8d47f', 'Celso', 'estudante'),
 (70, 'joaopinheirogomes20@gmail.com', '27cde2bd9fdafbec60d176d18fc8d47f', 'joao', 'admin'),
-(69, 'joaopinheirogomes@hotmail.com', 'f392666b6fa93b25762a34ea41dc7918', 'JoÃ£o', 'admin');
+(69, 'joaopinheirogomes@hotmail.com', 'f392666b6fa93b25762a34ea41dc7918', 'JoÃ£o', 'admin'),
+(83, 'tito@hotmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'tito', 'estudante'),
+(84, 'lol@hotmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'lol', 'estudante');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `messages`
+-- Table structure for table `messages`
 --
 
 CREATE TABLE `messages` (
@@ -149,7 +131,7 @@ CREATE TABLE `messages` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `messages`
+-- Dumping data for table `messages`
 --
 
 INSERT INTO `messages` (`id`, `group_hash`, `from_id`, `message`, `dia`, `hora`) VALUES
@@ -167,7 +149,7 @@ INSERT INTO `messages` (`id`, `group_hash`, `from_id`, `message`, `dia`, `hora`)
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `message_group`
+-- Table structure for table `message_group`
 --
 
 CREATE TABLE `message_group` (
@@ -177,7 +159,7 @@ CREATE TABLE `message_group` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `message_group`
+-- Dumping data for table `message_group`
 --
 
 INSERT INTO `message_group` (`user_one`, `user_two`, `hash`) VALUES
@@ -187,39 +169,78 @@ INSERT INTO `message_group` (`user_one`, `user_two`, `hash`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_dados`
+-- Table structure for table `sub_categorias_forum`
+--
+
+CREATE TABLE `sub_categorias_forum` (
+  `id` int(11) NOT NULL,
+  `id_categoria` int(11) NOT NULL,
+  `sub_categoria` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sub_categorias_forum`
+--
+
+INSERT INTO `sub_categorias_forum` (`id`, `id_categoria`, `sub_categoria`) VALUES
+(1, 1, 'Dieta');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_dados`
 --
 
 CREATE TABLE `tb_dados` (
   `id` int(11) NOT NULL,
   `id_jovem` int(11) DEFAULT NULL,
   `peso` double DEFAULT NULL,
-  `altura` double DEFAULT NULL,
   `imc` double DEFAULT NULL,
-  `mensagem` varchar(150) DEFAULT NULL,
-  `d_ano` datetime DEFAULT NULL,
-  `d_mes` varchar(100) DEFAULT NULL,
-  `d_dia` varchar(100) DEFAULT NULL
+  `d_ano` date DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `tb_dados`
+-- Dumping data for table `tb_dados`
 --
 
-INSERT INTO `tb_dados` (`id`, `id_jovem`, `peso`, `altura`, `imc`, `mensagem`, `d_ano`, `d_mes`, `d_dia`) VALUES
-(1, 3, 75, 1.78, 23, 'Peso Normal', '2014-05-17 00:00:00', '', NULL),
-(2, NULL, 75, 1.78, 23, 'Peso Normal', '2015-05-17 00:00:00', '', NULL),
-(3, NULL, 75, 1.78, 23, 'Peso Ideal', '2015-05-17 00:00:00', '', NULL),
-(4, NULL, 70, 1.7, 70, 'Obesidade  mrbida', '2015-05-17 00:00:00', '', NULL),
-(5, NULL, 70, 1.7, 70, 'Obesidade III (mórbida)', '2015-05-17 00:00:00', '', NULL),
-(6, 3, 55, 1.7, 24, 'Peso Ideal', '2015-02-17 00:00:00', '', NULL),
-(7, 5, 70, 1.4, 35, 'Obesidade II (severa)', '2015-04-17 00:00:00', '', NULL),
-(27, NULL, 60, 1.6, 23, 'Peso Ideal', NULL, NULL, NULL);
+INSERT INTO `tb_dados` (`id`, `id_jovem`, `peso`, `imc`, `d_ano`) VALUES
+(1, 83, 65, 21.718066089746, '2017-06-07'),
+(2, 83, 63.5, 21.216879949213, '2017-06-05'),
+(3, 83, 75.3, 25.16, '2017-06-14'),
+(4, 83, 55, 18.38, '2017-06-15'),
+(5, 83, 60, 20.05, '2017-06-11'),
+(6, 83, 10, 3.34, '2017-06-04'),
+(7, 83, 10, 3.34, '2017-06-04'),
+(8, 84, 30, 10.02, '2017-06-06'),
+(9, 83, 55, 18.38, '2017-06-13'),
+(10, 83, 66, 22.05, '2017-06-13');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `user`
+-- Table structure for table `tb_horas_exercicio`
+--
+
+CREATE TABLE `tb_horas_exercicio` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `nr_horas` int(11) NOT NULL,
+  `dataResg` date NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_horas_exercicio`
+--
+
+INSERT INTO `tb_horas_exercicio` (`id`, `user_id`, `nr_horas`, `dataResg`) VALUES
+(1, 83, 30, '2017-06-13'),
+(2, 83, 20, '2017-06-13'),
+(3, 83, 20, '2017-06-14');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -229,7 +250,7 @@ CREATE TABLE `user` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `password`) VALUES
@@ -243,10 +264,23 @@ INSERT INTO `user` (`id`, `username`, `password`) VALUES
 --
 
 --
+-- Indexes for table `categorias_forum`
+--
+ALTER TABLE `categorias_forum`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `forum_answer`
+--
+ALTER TABLE `forum_answer`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `forum_question`
 --
 ALTER TABLE `forum_question`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_subcategoria` (`fk_subcategoria`);
 
 --
 -- Indexes for table `login`
@@ -261,10 +295,25 @@ ALTER TABLE `messages`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sub_categorias_forum`
+--
+ALTER TABLE `sub_categorias_forum`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_categoria` (`id_categoria`);
+
+--
 -- Indexes for table `tb_dados`
 --
 ALTER TABLE `tb_dados`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_jovem` (`id_jovem`);
+
+--
+-- Indexes for table `tb_horas_exercicio`
+--
+ALTER TABLE `tb_horas_exercicio`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `user`
@@ -277,25 +326,45 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `categorias_forum`
+--
+ALTER TABLE `categorias_forum`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `forum_answer`
+--
+ALTER TABLE `forum_answer`
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `forum_question`
 --
 ALTER TABLE `forum_question`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `idUtilizador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `idUtilizador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
+-- AUTO_INCREMENT for table `sub_categorias_forum`
+--
+ALTER TABLE `sub_categorias_forum`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `tb_dados`
 --
 ALTER TABLE `tb_dados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT for table `tb_horas_exercicio`
+--
+ALTER TABLE `tb_horas_exercicio`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `user`
 --

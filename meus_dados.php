@@ -71,7 +71,7 @@ $jsonTable = json_encode($table);
           $result = mysqli_query($conn, $sql);
 
           if (mysqli_num_rows($result) > 0) {
-            echo "<table width=\"400\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"1\" >";
+            echo "<table class='responstable' width=\"400\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"1\" >";
             echo   "<tr>";
             echo      "<th>Peso</th>";
             echo       "<th>IMC</th>";
@@ -99,12 +99,12 @@ $jsonTable = json_encode($table);
 
           }
 
-          $sql = "SELECT * FROM tb_horas_exercicio Where user_id='$user_id' order by dataResg ";
+          $sql = "SELECT * FROM tb_horas_exercicio Where user_id='$user_id' order by dataResg ASC ";
           $result = mysqli_query($conn, $sql);
 
           if (mysqli_num_rows($result) > 0) {
             // output data of each row
-            echo "<table width=\"400\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"1\" >";
+            echo "<table class='responstable'>";
             echo   "<tr>";
             echo       "<th>Dias</th>";
             echo      "<th>Tempo de exercício</th>";
@@ -128,21 +128,31 @@ $jsonTable = json_encode($table);
         <div class="block">
           <h1>Menu</h1>
           <ul id="navigation">
-            <li class="color"><a href="menu_forum.php">Fórum</a></li>
-            <li><a href="#">Mensagens</a></li>
-            <li class="color"><a href="#">Ver Estudantes</a></li>
-            <li><a href="#">Ver Professores</a></li>
-            <li class="color"><a href="#">Ver Prof. Saúde</a></li>
-            <li><a href="#">Os Meus Artigos</a></li>
+            <li class="color"><a href="meu_perfil_e.php">Meu Perfil</a></li>
+            <li><a href="index_forum.php">Fórum</a></li>
+            <li class="color"><a href="messages.php">Mensagens</a></li>
+            <li><a href="ver_estudantes_e.php">Ver Estudantes</a></li>
+            <li  class="color"><a href="#">Ver Professores</a></li>
+            <li><a href="#">Ver Prof. Saúde</a></li>
+            <li class="color"><a href="#">Os Meus Artigos</a></li>
           </ul>
         </div>
 
       </div>
+      <div id="right" class="column">
+        <ul id="navigation">
+          <li class="color"><a href="registar_peso.php">Registar Peso</a></li>
+          <li><a href="registar_hora_exerc.php">Registar nº horas de exercício</a></li>
+          <li class="color"><a href="calcular_imc.php">Calcular IMC</a></li>
+          <li><a href="meus_dados.php?">Os Meus Dados</a></li>
+        </ul>
+        <a><img src="images/utilizadoresativos.gif" alt="" width="237" height="260" /></a><br />
+      </div>
     </div>
 
-    <a href="#"><button>Semanal</button></a>
+    <!-- <a href="#"><button>Semanal</button></a>
     <a href="meus_dados_mes.php"><button>Mensal</button></a>
-    <a href="#"><button>Anual</button></a>
+    <a href="#"><button>Anual</button></a> -->
 
     <br>
     <!-- esta é a div que irá armazenar o gráfico linear -->

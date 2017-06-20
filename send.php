@@ -43,7 +43,7 @@
         <?php
 
            if(!empty($_POST['message'])){
-               
+
                $my_id=$_SESSION['idUtilizador'];
                $user=$_GET['user'];
                if (!empty($_GET['hash']))
@@ -56,7 +56,7 @@
 
 
       $sql = "SELECT 'hash' FROM message_group where user_one='$my_id' AND user_two=$user OR user_two='$my_id' AND user_one=$user ";
-               
+
 
            $result = mysqli_query($conn, $sql);
 
@@ -87,10 +87,6 @@ if (mysqli_query($conn, $sql)) {
 }
         }
 
-
-
-
-
         ?>
 
            Enter message:<br>
@@ -101,9 +97,13 @@ if (mysqli_query($conn, $sql)) {
 
 
    <?php
-       }else{
+ }else{ ?>
 
-           echo "<b>Seleciona o utilizador!</b>";
+           <b>Seleciona o utilizador:</b>
+        <?php
+        if(empty($_POST['nome'])){
+            require('procurar_estudante.php');
+        }
            $sql = "SELECT idUtilizador, nome_user FROM login";
            $result = mysqli_query($conn, $sql);
 
@@ -114,15 +114,13 @@ if (mysqli_query($conn, $sql)) {
                 $user=$row['idUtilizador'];
                 $username=$row['nome_user'];
 
-                echo "<p><a href='send.php?user=$user'>$username</a></p> ";
+                echo "<p><a href='send.php?user=$user'><h3>$username</h3></a></p> ";
+
     }
+
 } else {
     echo "0 results";
 }
-
-
-
-
 
        }
 
@@ -138,13 +136,14 @@ if (mysqli_query($conn, $sql)) {
         <div class="block">
             <h1>Menu</h1>
             <ul id="navigation">
-                <li class="color"><a href="index_view.php">Fórum</a></li>
-                <li><a href="messages.php">Mensagens</a></li>
-                <li class="color"><a href="#">Ver Estudantes</a></li>
-                <li><a href="#">Ver Professores</a></li>
-                <li class="color"><a href="#">Ver Prof. Saúde</a></li>
-                <li><a href="#">Os Meus Artigos</a></li>
-                <li><a href="logout.php">Sair</a></li>
+              <li class="color"><a href="meu_perfil_e.php">Meu Perfil</a></li>
+              <li><a href="index_forum.php">Fórum</a></li>
+              <li class="color"><a href="messages.php">Mensagens</a></li>
+              <li><a href="ver_estudantes_e.php">Ver Estudantes</a></li>
+              <li  class="color"><a href="#">Ver Professores</a></li>
+              <li><a href="#">Ver Prof. Saúde</a></li>
+              <li class="color"><a href="#">Os Meus Artigos</a></li>
+
             </ul>
         </div>
 

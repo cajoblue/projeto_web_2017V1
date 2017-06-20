@@ -1,44 +1,50 @@
 <?php
+$numero_entradas=[];
+$numero_entradas['contador']=0;
+$numero_entradas['contador']+=1;
+
+echo $numero_entradas['contador'];
 
 
-$data = array(
-    array(
-        "title" => "Another title",
-        "date"  => "Fri, 17 Jun 2011 08:55:57 +0200"
-    ),
-    array(
-        "title" => "My title",
-        "date"  => "Mon, 16 Jun 2010 06:55:57 +0200"
-    )
-);
-
-function sortFunction( $a, $b ) {
-  $diff = date_diff(date_create($dateOfBirth), date_create($today));
-  $today = date("Y-m-d");
-    return strtotime($a["date"]) - strtotime($b["date"]);
-}
-usort($data, "sortFunction");
-var_dump($data);
-
-
-$dateOfBirth=date("Y-m-d", strtotime($dataNasc) );
 //
-$diff = date_diff(date_create($dateOfBirth), date_create($today));
-if($diff->format('%y')>0){
-  $age=$diff->format('%y')." anos";
-
-        echo "Anos:".$age;
-  }else{
-$age=$diff->m." meses";
-
-function sortFunction( $a, $b ) {
-
-  if[]
-  $diff = date_diff(date_create($dateOfBirth), date_create($today));
-  $today = date("Y-m-d");
-    return strtotime($a["date"]) - strtotime($b["date"]);
-}
-
+// $data = array(
+//     array(
+//         "title" => "Another title",
+//         "date"  => "Fri, 17 Jun 2011 08:55:57 +0200"
+//     ),
+//     array(
+//         "title" => "My title",
+//         "date"  => "Mon, 16 Jun 2010 06:55:57 +0200"
+//     )
+// );
+//
+// function sortFunction( $a, $b ) {
+//   $diff = date_diff(date_create($dateOfBirth), date_create($today));
+//   $today = date("Y-m-d");
+//     return strtotime($a["date"]) - strtotime($b["date"]);
+// }
+// usort($data, "sortFunction");
+// var_dump($data);
+//
+//
+// $dateOfBirth=date("Y-m-d", strtotime($dataNasc) );
+// //
+// $diff = date_diff(date_create($dateOfBirth), date_create($today));
+// if($diff->format('%y')>0){
+//   $age=$diff->format('%y')." anos";
+//
+//         echo "Anos:".$age;
+//   }else{
+// $age=$diff->m." meses";
+//
+// function sortFunction( $a, $b ) {
+//
+//   if[]
+//   $diff = date_diff(date_create($dateOfBirth), date_create($today));
+//   $today = date("Y-m-d");
+//     return strtotime($a["date"]) - strtotime($b["date"]);
+// }
+//
 
  /* $dataNasc ='12/01/2017';
  $dataNasc = explode("/", $dataNasc);

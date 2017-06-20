@@ -1,10 +1,9 @@
 <!DOCTYPE HTML >
 <html>
 <head>
-  <title>Forum Teen Power</title>
+  <title>Teen Power</title>
   <meta charset="UTF-8">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-5">
-  <meta charset="ISO-8859-1">
   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
@@ -12,10 +11,9 @@
   <div id="header">
     <a href="inicio.html" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
     <div class="topblock2">
-     <h3><?php session_start();
-     $email = $_SESSION['login'];
-     echo $email; ?></h3>
-      <a href="logout.php" class="float">Terminar Sessão</a>
+      <h3><?php session_start();
+        $email = $_SESSION['login'];
+        echo $email; ?></h3>
     </div>
     <div id="footer">
     </div>
@@ -24,9 +22,13 @@
   <div id="container">
     <div id="center" class="column">
       <div id="content">
-        <h1>Sub-categorias</h1>
+        <h1>Perfil</h1>
         <div id="content">
 
+<?php
+$sql = "SELECT* FROM t_prof WHERE idUtilizador='$my_id'";
+$result = mysqli_query($conn, $sql);
+ ?>
 
 
         </div>
@@ -47,7 +49,15 @@
       </div>
 
     </div>
-
+    <div id="right" class="column">
+      <ul id="navigation">
+        <li class="color"><a href="registar_peso.php">Registar Peso</a></li>
+        <li><a href="registar_hora_exerc.php">Registar nº horas de exercício</a></li>
+        <li class="color"><a href="calcular_imc.php">Calcular IMC</a></li>
+        <li><a href="meus_dados.php?">Os Meus Dados</a></li>
+      </ul>
+      <a><img src="images/utilizadoresativos.gif" alt="" width="237" height="260" /></a><br />
+    </div>
     <div class="blocks">
 
     </div>

@@ -12,7 +12,6 @@
     <a href="inicio.html" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
     <div class="topblock2">
        <h3><?php session_start();
-        $email = $_SESSION['login']; 
         $email = $_SESSION['login'];
         echo $email; ?></h3>
          <a href="logout.php" class="float">Terminar Sessão</a>
@@ -49,7 +48,6 @@ $result=mysqli_query($conn,$sql);
         echo "<td bgcolor=\"#FFFFFF\"><a href='ver_topico.php?id=".$row['id']."'>".$row['topic']."</a><a href='eliminar_topico.php?id=".$row['id']."&imagem=".$row['imagem']."'><img src=\"images/nocheck.jpg\" alt=\"\" width=\"31\" height=\"23\" /></a><a href='editar_topico.php?id=".$row['id']."'><img src=\"images/EDITAR.\" alt=\"\" width=\"31\" height=\"23\" /></a><br></td>";
         echo "<td align=\"center\" bgcolor=\"#FFFFFF\">".$row['view']."</td>";
         echo "<td align=\"center\" bgcolor=\"#FFFFFF\">".$row['reply']."</td>";
-        echo "<td align=\"center\" bgcolor=\"#FFFFFF\">".$row['datetime']."</td>";
         echo "<td align=\"center\" bgcolor=\"#FFFFFF\">".$row['data_reg']."</td>";
         echo "</tr>";
     }

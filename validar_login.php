@@ -1,6 +1,16 @@
 <?php
 include ("conexao.php");
 session_start();
+
+$numero_entradas=[];
+$numero_entradas['contador']=0;
+if(session_start()){
+  $numero_entradas['contador']+=1;
+}
+
+
+
+$_SESSION['numero_entradas']=$numero_entradas[0];
 $email = $_POST['email'];
 $password = md5($_POST['password']);
 $login = $_POST['login'];
