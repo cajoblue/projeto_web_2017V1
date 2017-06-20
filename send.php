@@ -1,3 +1,5 @@
+<?php include'connect.php'; ?>
+<?php include'functions.php'; ?>
 <!DOCTYPE HTML >
 <html>
 <head>
@@ -13,8 +15,10 @@
 <div id="header">
     <a href="index.html" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
     <div class="topblock2">
-        <h4>Administrador</h4>
-        <h5>username</h5>
+      <h3><?php
+      $email = $_SESSION['login'];
+      echo $email; ?></h3>
+       <a href="logout.php" class="float">Terminar Sessão</a>
     </div>
     <div id="footer">
     </div>
@@ -27,8 +31,7 @@
             <h1>Mensagens</h1>
             <div id="content">
             <form class=""  method="post">
-    <?php include'connect.php'; ?>
-    <?php include'functions.php'; ?>
+
     <?php// include'title_bar.php'; ?>
 
       <h2>Nova conversa</h2>
@@ -89,9 +92,9 @@ if (mysqli_query($conn, $sql)) {
 
         ?>
 
-           Enter message:<br>
+           Insira a mensagem:<br>
            <textarea name='message' rows='10' cols='60'></textarea><br/>
-           <input type="submit" value="send message" />
+           <input type="submit" value="Enviar" />
 
        </form>
 

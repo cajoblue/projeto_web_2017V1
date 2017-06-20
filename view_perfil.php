@@ -26,8 +26,16 @@
         <div id="content">
 
 <?php
-$sql = "SELECT* FROM t_prof WHERE idUtilizador='$my_id'";
+$sql = "SELECT* FROM t_prof_saude WHERE idUtilizador='$my_id'";
 $result = mysqli_query($conn, $sql);
+if ($result->num_rows > 0) {
+  while($row = $result->fetch_assoc()) {
+    $nome=$row[''];
+    echo "<p><strong>Nome:</strong></p>";
+  }
+}else{
+
+}
  ?>
 
 
