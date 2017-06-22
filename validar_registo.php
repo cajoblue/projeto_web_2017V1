@@ -19,6 +19,6 @@ while($row = mysqli_fetch_array($retval, MYSQLi_ASSOC)){// vai buscar ha base de
     echo "<td><a href='delete.php?id=".$row['id']."'><img src='delete.jpg' width=75px height=50px></a></td><tr>";
     echo "</tr>";
 }
-echo "</table><br/>  <a href='logA.php'>Terminar!</a>";// fecha a tabela e uma hiperligação para voltar ao inicio do site
+echo "</table><br/>  <a href='inicio.php'>Terminar!</a>";// fecha a tabela e uma hiperligação para voltar ao inicio do site
 mysqli_close($conn);
 ?>

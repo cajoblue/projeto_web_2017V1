@@ -11,7 +11,7 @@
     
     
 <div id="header">
-    <a href="index.html" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
+    <a href="inicio.php" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
     <div class="topblock2">
         <h4>Administrador</h4>
         <h5>username</h5>

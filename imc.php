@@ -82,7 +82,7 @@ $jsonTable = json_encode($table);
 </head>
 <body>
 <div id="header">
-    <a href="inicio.html" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
+    <a href="inicio.php" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
     <div class="topblock2">
         <h4>Adolescente</h4>
         <h5>username</h5>

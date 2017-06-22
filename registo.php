@@ -1,4 +1,5 @@
 <?php
+include ("functions.php");
 include ("conexao.php");
 header('Content-Type: text/html; charset=UTF-8');
 
@@ -8,17 +9,31 @@ $email ="" ;
 $password = "";
 $nome_user = "";
 $tipo= "";
-
 $nome_user='';
 
+$email = $_SESSION['idUtilizador'];
+
+if(empty($email)){
+	echo "<script>alert('Por favor inicie sessão!');top.location.href='login.html';</script>";
+}
+
+
 if(!empty($_POST)){
-	$password1 = ($_POST['password']);
 
-
+	$password1 =$_POST['password'];
     $email = $_POST['email'];
     $password = md5($password1);
     $nome_user= $_POST['nome_user'];
     $tipo = $_POST['tipo'];
+
+		if(!preg_match("/^[_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÇÈÉÊÌÍÒÓÔÕÙÚÛàáâãçèéêìíîòóôõùúû ]+$/", $nome_user)){
+			echo "<script>alert('Nome inválido!');top.location.href='registo_view.php';</script>";
+				die;
+		}
+		if(!preg_match("/^[@$#0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÇÈÉÊÌÍÒÓÔÕÙÚÛàáâãçèéêìíîòóôõùúû ]+$/", $password1)){
+			echo "<script>alert('Palavra passe inválida!');top.location.href='registo_view.php';</script>";
+				die;
+		}
 
 
     $sql = "INSERT INTO login (email, password, nome_user, tipo) VALUES ('$email','$password','$nome_user','$tipo')";
@@ -27,7 +42,7 @@ if(!empty($_POST)){
     if (mysqli_query($conn, $sql)) {
         echo "<script>alert('Registo efetuado com sucesso!');top.location.href='registo_view.php';</script>";
         echo "<br/> style='text-align:center;'  <a href='registo_view.php'>Voltar ao ínicio</a>";
-		
+
 		require 'PHPMailer-master/PHPMailerAutoload.php';
 
 		$mail = new PHPMailer;
@@ -71,9 +86,9 @@ if(!empty($_POST)){
 		} else {
 			echo 'Mensagem enviada com sucesso';
 		}
-		
+
     } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+				echo "<script>alert('Error:');".$sql."top.location.href='registo_view.php.php';</script>". mysqli_error($conn);
     }
 
 }else{

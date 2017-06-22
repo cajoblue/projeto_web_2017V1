@@ -8,7 +8,7 @@
 </head>
 <body>
   <div id="header">
-    <a href="inicio.html" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
+    <a href="inicio.php" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
     <div class="topblock2">
       <h3>Estudante</h3>
       <h3><?php include ("conexao.php");

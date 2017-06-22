@@ -1,3 +1,4 @@
+<?php include_once'functions.php'; ?>
 <!DOCTYPE HTML >
 <html>
 <head>
@@ -9,9 +10,9 @@
 
 <body>
 <div id="header">
-    <a href="logA.php" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
+    <a href="inicio.php" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
     <div class="topblock2">
-        <h3><?php session_start();
+        <h3><?php
             $email = $_SESSION['login'];
             echo $email; ?></h3>
         <a href="logout.php" class="float">Terminar Sessão</a>
@@ -36,7 +37,7 @@
                                     </tr>
                                     <tr>
                                         <td><p class="line" ><span>Email:</span></td>
-                                        <td><p><input type="text" name="email"required/></td></p>
+                                        <td><p><input type="email" name="email"required/></td></p>
                                     </tr>
                                     <tr>
                                         <?php
@@ -60,7 +61,7 @@
                                         ?>
 
                                         <td><p class="line"><span>Password:</span></td>
-                                        <td><p><input type="text" name="password" value="<?php echo gerarPass(8)?>" require/></p></td>
+                                        <td><p><input type="password" name="password" value="<?php echo gerarPass(8)?>" require/></p></td>
                                     </tr>
                                 </table>
                                 <div id="center" class="column">
@@ -69,7 +70,9 @@
                                         <option value="estudante" >Estudante</option>
                                         <option value="prof_saude">Profissional de Saúde</option>
                                         <option value="professor">Professor</option>
+                                        <?php if(descobrirUser()=="admin"){ ?>
                                         <option value="admin">Administrador</option>
+                                        <?php }; ?>
                                     </select>
                                     <div id="center" class="column">
                                         <input type="submit" name="Submit" value="Registar">
@@ -82,25 +85,7 @@
             </div>
         </div>
     </div>
-    <div id="left" class="column">
-        <div class="block">
-            <h1>Menu</h1>
-            <ul id="navigation">
-                <li class="color"><a href="menu_forum.php">Fórum</a></li>
-                <li><a href="#">Mensagens</a></li>
-                <li class="color"><a href="#">Ver Estudantes</a></li>
-                <li><a href="#">Ver Professores</a></li>
-                <li class="color"><a href="#">Ver Prof. Saúde</a></li>
-                <li><a href="#">Os Meus Artigos</a></li>
-                <li class="color"><a href="registo_view.php">Adicionar utilizador</a></li>
-            </ul>
-        </div>
-
-    </div>
-    <div id="right" class="column">
-        <a><img src="images/utilizadoresativos.gif" alt="" width="237" height="260" /></a><br />
-
-    </div>
+    <?php require 'barra_lateral.php';?>
     <div class="blocks">
 
     </div>

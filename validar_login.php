@@ -33,17 +33,17 @@ if ( $email==$e && $password == $p)	{
     if( $t=="admin" ) {
 
         $_SESSION['login'] = $email;
-        header ('Location: logA.php');
+        header ('Location: inicio.php');
     }
     if( $t=="prof_saude" ) {
 
         $_SESSION['login'] = $email;
-        header ('Location: logPS.php');
+        header ('Location: inicio.php');
     }
     if( $t=="professor" ) {
 
         $_SESSION['login'] = $email;
-        header ('Location: logP.php');
+        header ('Location: inicio.php');
     }
     if( $t=="estudante" ) {
 

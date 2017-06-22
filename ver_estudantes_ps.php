@@ -9,7 +9,7 @@
 
 <body>
 <div id="header">
-    <a href="logPS.php" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
+    <a href="inicio.php" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
     <div class="topblock2">
          <h3>Profissional de Saúde</h3>
         <h3><?php session_start();
@@ -43,7 +43,7 @@
                     echo "<td>".$row['tipo']."</td>";
                     echo "</tr>";
                 }
-                echo "</table><br/>  <a href='LogPS.php'>Voltar</a>";// fecha a tabela e uma hiperligacao para voltar ao inicio do site
+                echo "</table><br/>  <a href='inicio.php'>Voltar</a>";// fecha a tabela e uma hiperligacao para voltar ao inicio do site
                 mysqli_close($conn);
                 ?>
                 >

@@ -22,12 +22,12 @@ $idUtilizador = $_SESSION['idUtilizador'];
             $update_pwd=mysqli_query($conn, $query1);
 			echo "<script>alert('Palavra-Passe alterada com sucesso!'); window.location='meu_perfil_ps.php'</script>";
 		}else{
-			echo "<script>alert('As Palavras-Passe não coicidem!'); window.location='alterar_pass.php'</script>";
+			echo "<script>alert('As Palavras-Passe não coicidem!'); window.location='alterar_pass_e.php'</script>";
 		}
 		}
 		else
 		{
-		echo "<script>alert('Palavra-Passe atual incorreta!'); window.location='alterar_pass.php'</script>";
+		echo "<script>alert('Palavra-Passe atual incorreta!'); window.location='alterar_pass_e.php'</script>";
 		}
         }
 	?>

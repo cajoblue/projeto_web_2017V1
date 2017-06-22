@@ -10,7 +10,7 @@
 
 <body>
 <div id="header">
-    <a href="logP.php" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
+    <a href="inicio.php" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
     <div class="topblock2">
          <h3>Professor</h3>
         <h3><?php include ("conexao.php");
@@ -28,7 +28,7 @@
         <div id="content">
             <h1>Meu Perfil</h1>
             <div class="stuff">
-                <a href="alterar_pass_prof.php"><button>Alterar Palavra-Passe</button></a>
+                <a href="alterar_pass_e.php"><button>Alterar Palavra-Passe</button></a>
                 <a href="registar_dados_prof.php"><button>Registar Dados Pessoais</button></a>
                 <a href="editar_dados_prof.php"><button>Editar Dados Pessoais</button></a>
                  <h3><?php

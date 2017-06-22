@@ -9,7 +9,7 @@
 
 <body>
 <div id="header">
-    <a href="logA.php" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
+    <a href="inicio.php" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
     <div class="topblock2">
          <h3>Administrador</h3>
         <h3><?php session_start();
@@ -44,7 +44,7 @@
                     echo "<td>".$row['tipo']."</td>";
                     echo "</tr>";
                 }
-                echo "</table><br/>  <a href='LogA.php'>Voltar</a>";// fecha a tabela e uma hiperligacao para voltar ao inicio do site
+                echo "</table><br/>  <a href='inicio.php'>Voltar</a>";// fecha a tabela e uma hiperligacao para voltar ao inicio do site
                 mysqli_close($conn);
                 ?>
                 >
@@ -52,25 +52,7 @@
         </div>
 
     </div>
-    <div id="left" class="column">
-        <div class="block">
-            <h1>Menu</h1>
-            <ul id="navigation">
-                <li class="color"><a href="menu_forum.php">Fórum</a></li>
-                <li><a href="#">Mensagens</a></li>
-                <li class="color"><a href="ver_estudantes.php">Ver Estudantes</a></li>
-                <li><a href="ver_prof.php">Ver Professores</a></li>
-                <li class="color"><a href="ver_profsaude.php">Ver Prof. Saúde</a></li>
-                <li><a href="#">Os Meus Artigos</a></li>
-                <li class="color"><a href="registo_view.php">Adicionar utilizador</a></li>
-            </ul>
-        </div>
-
-    </div>
-    <div id="right" class="column">
-        <a><img src="images/utilizadoresativos.gif" alt="" width="237" height="260" /></a><br />
-
-    </div>
+    <?php require 'barra_lateral.php';?>
     <div class="blocks">
 
     </div>

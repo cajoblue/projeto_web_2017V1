@@ -11,7 +11,7 @@
 
 
 <div id="header">
-    <a href="index_view.php" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
+    <a href="inicio.php" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
     <div class="topblock2">
         <h4>Administrador</h4>
         <h5>username</h5>
@@ -41,7 +41,7 @@
         <div class="block">
             <h1>Menu</h1>
             <ul id="navigation">
-                <li class="color"><a href="index_view.php">Fórum</a></li>
+                <li class="color"><a href="inicio.php">Fórum</a></li>
                 <li><a href="messages.php">Mensagens</a></li>
                 <li class="color"><a href="#">Ver Estudantes</a></li>
                 <li><a href="#">Ver Professores</a></li>

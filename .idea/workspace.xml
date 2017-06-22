@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="413d3442-98de-4051-a43b-9dfeb484d24d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inicio.html" afterPath="$PROJECT_DIR$/inicio.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inicio.php" afterPath="$PROJECT_DIR$/inicio.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/menu_forum.php" afterPath="$PROJECT_DIR$/menu_forum.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -142,7 +142,7 @@
         <option value="$PROJECT_DIR$/criar_topico.html" />
         <option value="$PROJECT_DIR$/ver_topico.php" />
         <option value="$PROJECT_DIR$/adicionar_comentario.php" />
-        <option value="$PROJECT_DIR$/inicio.html" />
+        <option value="$PROJECT_DIR$/inicio.php" />
         <option value="$PROJECT_DIR$/calcular_imc.php" />
         <option value="$PROJECT_DIR$/registar_peso.php" />
         <option value="$PROJECT_DIR$/meu_peso.php" />
@@ -537,7 +537,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inicio.html">
+    <entry file="file://$PROJECT_DIR$/inicio.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="524">
           <caret line="66" column="0" lean-forward="false" selection-start-line="44" selection-start-column="3" selection-end-line="66" selection-end-column="0" />
