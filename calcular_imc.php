@@ -1,4 +1,5 @@
-<!DOCTYPE HTML >
+<?php include_once'functions.php'; ?>
+!DOCTYPE HTML >
 <html>
 <head>
     <title>Forum Teen Power</title>
@@ -11,10 +12,14 @@
 <div id="header">
     <a href="inicio.php" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
     <div class="topblock2">
-        <h4>Adolescente</h4>
-        <h5>username</h5>
+      <h3><?php
+  $email = $_SESSION['login'];
+  echo $email; ?></h3>
+  <a href="logout.php" class="float">Terminar Sessão</a>
     </div>
     <div id="footer">
+      <?php
+      require 'breadCrumb.php'; ?>
     </div>
     <div id="container">
         <div id="center" class="column">
@@ -76,29 +81,7 @@ if(!empty($_POST['peso']) || !empty($_POST['altura']) ){
 </form>
             </div>
         </div>
-        <div id="left" class="column">
-            <div class="block">
-                <h1>Menu</h1>
-                <ul id="navigation">
-                  <li class="color"><a href="meu_perfil_e.php">Meu Perfil</a></li>
-                  <li><a href="index_forum.php">Fórum</a></li>
-                  <li class="color"><a href="messages.php">Mensagens</a></li>
-                  <li><a href="ver_estudantes_e.php">Ver Estudantes</a></li>
-                  <li  class="color"><a href="#">Ver Professores</a></li>
-                  <li><a href="#">Ver Prof. Saúde</a></li>
-                  <li class="color"><a href="#">Os Meus Artigos</a></li>
-                </ul>
-            </div>
-        </div>
-        <div id="right" class="column">
-          <ul id="navigation">
-            <li class="color"><a href="registar_peso.php">Registar Peso</a></li>
-            <li><a href="registar_hora_exerc.php">Registar nº horas de exercício</a></li>
-            <li class="color"><a href="calcular_imc.php">Calcular IMC</a></li>
-            <li><a href="meus_dados.php?">Os Meus Dados</a></li>
-          </ul>
-          <a><img src="images/utilizadoresativos.gif" alt="" width="237" height="260" /></a><br />
-        </div>
+        <?php require 'barra_lateral.php';?>
     </div>
 
     <br>

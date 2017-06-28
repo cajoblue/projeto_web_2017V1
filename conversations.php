@@ -1,4 +1,4 @@
-<?php include'connect.php'; ?>
+<?php include'conexao.php'; ?>
 <?php include'functions.php'; ?>
 <!DOCTYPE HTML >
 <html>
@@ -21,6 +21,8 @@
       <a href="logout.php" class="float">Terminar Sessão</a>
     </div>
     <div id="footer">
+      <?php
+      require 'breadCrumb.php'; ?>
     </div>
 </div>
 
@@ -28,10 +30,11 @@
     <div id="center" class="column">
         <div id="content">
 
-            <h1>Conversations</h1>
+            <h1>Minhas Conversas</h1>
             <div id="content">
             <form class="" action="forum_cosntrol.php" method="post">
-       <?php include'message_title_bar.php'; ?>
+       <?php
+       if(empty($_GET['hash'])){ include'message_title_bar.php';};?>
     <?php $my_id = $_SESSION['idUtilizador']; ?><!--passa para esta variavel do id da pessoa logada!-->
 </form>
        <div>
@@ -83,7 +86,7 @@
 
                Enter message:<br>
            <textarea name='message' rows='10' cols='60'></textarea><br/>
-           <input type="submit" value="send message" />
+           <input type="submit" value="Enviar" />
 
         </form>
 

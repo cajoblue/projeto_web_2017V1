@@ -1,5 +1,5 @@
 <?php
-include 'connect.php';
+include 'conexao.php';
 
 $hash=$_GET['hash'];
 

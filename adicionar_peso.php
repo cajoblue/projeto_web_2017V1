@@ -8,10 +8,14 @@ $user_id=$_SESSION['idUtilizador'];
 $altura=0;
 $today=date('y-m-d');
 
-if($date > $today ){
-  echo "<script>alert('O data inválida!');top.location.href='registar_peso.php';</script>";
-}
+$curdate=strtotime($today);
+$mydate=strtotime($date);
 
+if($curdate < $mydate)
+{
+  echo "<script>alert('O data inválida!');top.location.href='registar_peso.php';</script>";
+die;
+}
 
  $sql_1 = "SELECT altura FROM t_estudante where idUtilizador =$user_id";
 $result_1 = $conn->query($sql_1);

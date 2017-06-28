@@ -62,7 +62,6 @@ $jsonTable = json_encode($table);
         <div id="content">
           <h1>Dados de Saúde</h1>
           <br>
-          <h3>Meu peso</h3>
           <?php
           if(!empty($_GET['id'])){
             $user_id=$_GET['id'];
@@ -73,7 +72,9 @@ $jsonTable = json_encode($table);
 
             $tipo="";
             $sql = "SELECT * FROM tb_dados Where id_jovem='$user_id' ";
-            $result = mysqli_query($conn, $sql);
+            $result = mysqli_query($conn, $sql); ?>
+            <h3>Peso e IMC</h3>
+            <?php
 
             if (mysqli_num_rows($result) > 0) {
               echo "<table class='responstable' width=\"400\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"1\" >";
@@ -108,6 +109,10 @@ $jsonTable = json_encode($table);
             $result = mysqli_query($conn, $sql);
 
             if (mysqli_num_rows($result) > 0) {
+
+              ?>
+              <h3>Tempo de exercício</h3>
+              <?php
               // output data of each row
               echo "<table class='responstable'>";
               echo   "<tr>";
@@ -129,59 +134,59 @@ $jsonTable = json_encode($table);
 
           </div>
         </div>
-<?php require 'barra_lateral.php'; ?>
+        <?php require 'barra_lateral.php'; ?>
 
-        </div>
+      </div>
 
-        <!-- <a href="#"><button>Semanal</button></a>
-        <a href="meus_dados_mes.php"><button>Mensal</button></a>
-        <a href="#"><button>Anual</button></a> -->
+      <!-- <a href="#"><button>Semanal</button></a>
+      <a href="meus_dados_mes.php"><button>Mensal</button></a>
+      <a href="#"><button>Anual</button></a> -->
 
-        <br>
-        <!-- esta é a div que irá armazenar o gráfico linear -->
-        <div class="chart_div_dados" id="chart_div" ></div>
-        <br>
-        <div class="blocks">
-        </div>
-        <div id="footer">
-          <p>Copyright &copy;. All rights reserved. Design by <a >TeenPower</a>     </p>
-        </div>
-        <form class="" action="" method="post">
-          <table>
-            <tr>
-              <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-              <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+      <br>
+      <!-- esta é a div que irá armazenar o gráfico linear -->
+      <div class="chart_div_dados" id="chart_div" ></div>
+      <br>
+      <div class="blocks">
+      </div>
+      <div id="footer">
+        <p>Copyright &copy;. All rights reserved. Design by <a >TeenPower</a>     </p>
+      </div>
+      <form class="" action="" method="post">
+        <table>
+          <tr>
+            <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 
-              <!-- <script>
+            <!-- <script>
 
-              // Load the Visualization API and the piechart package.
-              google.load('visualization', '1', {'packages':['corechart']});
+            // Load the Visualization API and the piechart package.
+            google.load('visualization', '1', {'packages':['corechart']});
 
-              // Set a callback to run when the Google Visualization API is loaded.
-              google.setOnLoadCallback(drawChart);
+            // Set a callback to run when the Google Visualization API is loaded.
+            google.setOnLoadCallback(drawChart);
 
-              function drawChart() {
+            function drawChart() {
 
-              // Create our data table out of JSON data loaded from server.
-              var data = new google.visualization.DataTable(<?php echo $jsonTable; ?>);
+            // Create our data table out of JSON data loaded from server.
+            var data = new google.visualization.DataTable(<?php echo $jsonTable; ?>);
 
-              var options = {
-              vAxis: {title: 'Valores do Peso '},
-              title: 'Estatística do seu Peso Anual ',
-              width: 600, heigth: 300,
-              colors: ['#335070'],
-              float:rigth,
-              legend: { position: 'bottom' }
-            };
-            // Instantiate and draw our chart, passing in some options.
-            // Do not forget to check your div ID
-            var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-            chart.draw(data, options);
-          }
-        </script> -->
+            var options = {
+            vAxis: {title: 'Valores do Peso '},
+            title: 'Estatística do seu Peso Anual ',
+            width: 600, heigth: 300,
+            colors: ['#335070'],
+            float:rigth,
+            legend: { position: 'bottom' }
+          };
+          // Instantiate and draw our chart, passing in some options.
+          // Do not forget to check your div ID
+          var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+          chart.draw(data, options);
+        }
+      </script> -->
 
-      </tr>
-    </table>
-  </form>
+    </tr>
+  </table>
+</form>
 </body>
 </html>

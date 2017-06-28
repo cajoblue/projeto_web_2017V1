@@ -1,4 +1,4 @@
-<?php include'connect.php'; ?>
+<?php include'conexao.php'; ?>
 <?php include'functions.php'; ?>
 <!DOCTYPE HTML >
 <html>
@@ -21,6 +21,8 @@
        <a href="logout.php" class="float">Terminar Sessão</a>
     </div>
     <div id="footer">
+      <?php
+      require 'breadCrumb.php'; ?>
     </div>
 </div>
 
@@ -28,18 +30,19 @@
     <div id="center" class="column">
         <div id="content">
 
-            <h1>Mensagens</h1>
+            <h1>Nova conversa</h1>
             <div id="content">
             <form class=""  method="post">
 
     <?php// include'title_bar.php'; ?>
-
-      <h2>Nova conversa</h2>
- <?php include 'message_title_bar.php' ;?>
-    <br/>
-
    <div>
+     <?php if(empty($_GET['user'])){ ?>
+     <form action='send.php' method='POST'>
+       <input type='text' placeholder='Procurar..' name="nome" />
+     <input type='submit' value='Procurar'/>
+     </form>
        <?php
+     };
        if(isset($_GET['user']) && !empty($_GET['user'])){
          ?>
        <form method='post'>
@@ -102,12 +105,34 @@ if (mysqli_query($conn, $sql)) {
    <?php
  }else{ ?>
 
-           <b>Seleciona o utilizador:</b>
+           <br><b>Seleciona o utilizador:</b>
         <?php
         if(empty($_POST['nome'])){
-            require('procurar_estudante.php');
-        }
-           $sql = "SELECT idUtilizador, nome_user FROM login";
+            $sql = "SELECT idUtilizador, nome_user FROM login";
+            $result = mysqli_query($conn, $sql);
+
+         if (mysqli_num_rows($result) > 0) {
+     // output data of each row
+             while($row = mysqli_fetch_assoc($result)) {
+
+                 $user=$row['idUtilizador'];
+                 $username=$row['nome_user'];
+
+                 echo "<p><a href='send.php?user=$user'><h3>$username</h3></a></p> ";
+
+     }
+
+     } else {
+     echo "0 results";
+    }
+        }else{
+           $nome_procurado=$_POST['nome'];
+          if(!preg_match("/^[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÇÈÉÊÌÍÒÓÔÕÙÚÛàáâãçèéêìíîòóôõùúû ]+$/", $nome_procurado)){
+            echo "<script>alert('Nome inválido!!');top.location.href='send.php';</script>";
+die;
+          }
+
+           $sql = "SELECT idUtilizador, nome_user FROM login where nome_user like'%$nome_procurado%' ";
            $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) > 0) {
@@ -121,17 +146,18 @@ if (mysqli_query($conn, $sql)) {
 
     }
 
-} else {
+    } else {
     echo "0 results";
+   }
 }
 
-       }
+}
 
 
        ?>
-   </div>
-
 </form>
+
+</div>
             </div>
         </div>
     </div>

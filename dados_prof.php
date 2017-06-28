@@ -14,6 +14,7 @@
     <div class="topblock2">
         <h3><?php
         $email = $_SESSION['login'];
+        $id = $_SESSION['idUtilizador'];
         echo $email; ?></h3>
          <a href="logout.php" class="float">Terminar Sessão</a>
     </div>
@@ -67,7 +68,7 @@
             </div>
         </div>
     </div>
-<?php require 'barra_lateral.php';?>
+<?php if(verHash()==$id){ require 'barra_lateral.php';}; ?>
     <div class="blocks">
     </div>
 </div>

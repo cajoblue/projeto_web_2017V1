@@ -18,6 +18,8 @@
         <a href="logout.php" class="float">Terminar Sessão</a>
     </div>
     <div id="footer">
+      <?php
+      require 'breadCrumb.php'; ?>
     </div>
 </div>
 

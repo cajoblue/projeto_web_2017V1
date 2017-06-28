@@ -1,66 +1,70 @@
+<?php include_once'functions.php'; ?>
 <!DOCTYPE HTML >
 <html>
 <head>
-    <title>Teen Power</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-5">
-    <link rel="stylesheet" type="text/css" href="style.css" />
+  <title>Teen Power</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-5">
+  <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
 <body>
-<div id="header">
+  <div id="header">
     <a href="inicio.php" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
     <div class="topblock2">
-         <h3>Profissional de Saúde</h3>
-        <h3><?php session_start();
-        $email = $_SESSION['login'];
-        echo $email; ?></h3>
-         <a href="logout.php" class="float">Terminar Sessão</a>
+      <h3><?php
+      $email = $_SESSION['login'];
+      echo $email; ?></h3>
+      <a href="logout.php" class="float">Terminar Sessão</a>
     </div>
     <div id="footer">
     </div>
-</div>
+  </div>
 
-<div id="container">
+  <div id="container">
     <div id="center" class="column">
+      <div id="content">
         <div id="content">
-            <h1>Editar Dados Pessoais</h1>
-            <div class="stuff">
-                <?php include 'editar_ps.php'; ?>
+          <h1>Editar dados Pessoais</h1>
 
+          <?php
+          include('conexao.php');
+          $tbl_name="t_prof_saude"; // Table name
 
+          // get value of id that sent from address bar
+          $my_id = $_SESSION['idUtilizador'];
 
+          $sql2="SELECT * FROM $tbl_name WHERE idUtilizador=$my_id";
+          $result2=mysqli_query($conn,$sql2);
 
-            </div>
+          while($row=mysqli_fetch_array($result2)){
+            $nome=$row['nome_completo'];
+            $area=$row['area_esp'];
+            $local=$row['local_trab'];
+            $forma=$row['formacao_acad'];
+?>
+            <form  id="form1" class="" action="salvar_dados_ps.php" method="post">
+              <strong>Nome Completo</strong> <input type="text" name="nome_completo" value="<?php echo $nome;  ?>"><br>
+              <strong>Área de Especialização</strong>  <input type="text" name="area_esp" value="<?php echo $area; ?>"><br>
+              <strong>Local de Trabalho</strong> <input type="text" name="local_trab" value="<?php echo $local;  ?>"><br>
+              <strong>Formação Académica</strong> <input type="text" name="formacao_acad" value="<?php echo $forma;  ?>"><br>
+              <input type="submit" name="Atualizar" value="Atualizar Dados Pessoais"> <input type="reset" name="apagar" value="Apagar">
+            </form>
+            <?php };
+
+            mysqli_close($conn);
+            ?>
+          </div><br>
         </div>
+      </div>
+      <?php require 'barra_lateral.php';?>
     </div>
-    <div id="left" class="column">
-        <div class="block">
-            <h1>Menu</h1>
-            <ul id="navigation">
-              <li class="color"><a href="meu_perfil_e.php">Meu Perfil</a></li>
-              <li><a href="index_forum.php">Fórum</a></li>
-              <li class="color"><a href="messages.php">Mensagens</a></li>
-              <li><a href="ver_estudantes_e.php">Ver Estudantes</a></li>
-              <li  class="color"><a href="#">Ver Professores</a></li>
-              <li><a href="#">Ver Prof. Saúde</a></li>
-              <li class="color"><a href="#">Os Meus Artigos</a></li>
-                <li ><a href="registo_view_ps.php">Adicionar utilizador</a></li>
-            </ul>
-        </div>
-    </div>
-    <div id="right" class="column">
-        <a><img src="images/utilizadoresativos.gif" alt="" width="237" height="260" /></a><br />
-
-    </div>
-    <div class="blocks">
-
-    </div>
+  </div>
 </div>
-
+</div>
 
 <div id="footer">
-    <p>Copyright &copy;. All rights reserved. Design by <a >TeenPower</a>     </p>
+  <p>Copyright &copy;. All rights reserved. Design by <a >TeenPower</a>     </p>
 </div>
 </body>
 </html>

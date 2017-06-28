@@ -27,7 +27,7 @@
             <h1>Mensagens</h1>
             <div id="content">
             <form class=""  method="post">
-    <?php include'connect.php'; ?>
+    <?php include'conexao.php'; ?>
     <?php include'functions.php'; ?>
     <?php// include'title_bar.php'; ?>
 

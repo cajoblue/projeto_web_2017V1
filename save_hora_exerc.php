@@ -5,6 +5,7 @@ session_start();
 $hora=$_POST['nr_horas'];
 $data=$_POST['data'];
 $user_id=$_SESSION['idUtilizador'];
+
     $sql="INSERT INTO tb_horas_exercicio (user_id, nr_horas, dataResg)VALUES($user_id, $hora, '$data')";
     $result=mysqli_query($conn,$sql);
 

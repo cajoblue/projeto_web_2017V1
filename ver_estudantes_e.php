@@ -26,14 +26,14 @@
       <div id="content">
         <h1>Lista de EStudantes</h1>
         <div class="stuff">
+          <form action='ver_estudantes_e.php' method='POST'>
+            <input type='text' placeholder='Procurar..' name="nome" />
+          <input type='submit' value='Procurar'/>
+          </form>
           <?php
           include ("conexao.php");
-          // Cria a tabela
-          echo "<br> <table border='1' style='text-align:center;'>
-          <tr>
-          <th>Nome</th>
-          <th>Escola</th>
-          </tr>";
+        if(empty($_POST['nome'])){
+
           // Liga a tabela na base de dados
           $sql = "SELECT* FROM t_estudante";
           //Seleciona a base de dados
@@ -41,19 +41,64 @@
           if(! $retval ){
             die('Could not get data: ' . mysqli_error());// se nao funcionar da erro
 
-          }while($row = mysqli_fetch_array($retval, MYSQLI_ASSOC)){// vai buscar ha base de dados os dados nela guardada e poem os na tabela
-            //echo "<tr><td>".$row['img_capa']."</td>";
-            $user_id=$row['idUtilizador'];
-            echo "<tr>";
-            echo "<td>".$row['nome_completo']."</td>";
-            echo "<td>".$row['escola']."</td>";
-            echo "</tr>";
-            echo "<a href='meu_perfil_e.php?id=$user_id'>Ver + </a>";
-            echo "<br>";
-            echo "<br>";
+          }
+          if ($retval->num_rows < 1){
+            echo "Desculpe, mais ainda não temos estudantes registados.";
+          }else{
+            echo "<br> <table border='1' style='text-align:center;'>
+            <tr>
+            <th>Nome</th>
+            <th>Escola</th>
+            <th>Mensagem</th>
+            </tr>";
+            while($row = mysqli_fetch_array($retval, MYSQLI_ASSOC)){// vai buscar ha base de dados os dados nela guardada e poem os na tabela
+              //echo "<tr><td>".$row['img_capa']."</td>";
+              $user_id=$row['idUtilizador'];
+              echo "<tr>";
+              echo "<td><a href='meu_perfil_e.php?id=$user_id'>".$row['nome_completo']."</a></td>";
+              echo "<td>".$row['escola']."</td>";
+              echo "<td><a href='send.php?user=$user_id'><img src='enviar.jpg' alt='enviar mensagem' height='42' width='32'></a></td>";
+              echo "</tr>";
+
+            }
+            echo "</table><br/>  <a href='inicio.php'>Voltar</a>";// fecha a tabela e uma hiperligacao para voltar ao inicio do site
+          }
+        }else{
+          $nome_procurado=$_POST['nome'];
+          if(!preg_match("/^[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÇÈÉÊÌÍÒÓÔÕÙÚÛàáâãçèéêìíîòóôõùúû ]+$/", $nome_procurado)){
+           echo "<script>alert('Nome inválido!!');top.location.href='send.php';</script>";
+          die;
+}
+
+          $sql = "SELECT* FROM t_estudante where nome_completo like'%$nome_procurado%' ";
+          //Seleciona a base de dados
+          $retval = mysqli_query( $conn, $sql );
+          if(! $retval ){
+            die('Could not get data: ' . mysqli_error());// se nao funcionar da erro
 
           }
-          echo "</table><br/>  <a href='inicio.php'>Voltar</a>";// fecha a tabela e uma hiperligacao para voltar ao inicio do site
+          if ($retval->num_rows < 1){
+            echo "Sem resultado";
+          }else{
+            echo "<br> <table border='1' style='text-align:center;'>
+            <tr>
+            <th>Nome</th>
+            <th>Escola</th>
+            <th>Mensagem</th>
+            </tr>";
+            while($row = mysqli_fetch_array($retval, MYSQLI_ASSOC)){// vai buscar ha base de dados os dados nela guardada e poem os na tabela
+              //echo "<tr><td>".$row['img_capa']."</td>";
+              $user_id=$row['idUtilizador'];
+              echo "<tr>";
+              echo "<td><a href='meu_perfil_e.php?id=$user_id'>".$row['nome_completo']."</a></td>";
+              echo "<td>".$row['escola']."</td>";
+              echo "<td><a href='send.php?user=$user_id'><img src='enviar.jpg' alt='enviar mensagem' height='42' width='32'></a></td>";
+              echo "</tr>";
+
+            }
+            echo "</table><br/>  <a href='inicio.php'>Voltar</a>";// fecha a tabela e uma hiperligacao para voltar ao inicio do site
+          }
+        }
           mysqli_close($conn);
           ?>
           >

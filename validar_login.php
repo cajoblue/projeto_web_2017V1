@@ -1,16 +1,6 @@
 <?php
 include ("conexao.php");
-session_start();
-
-$numero_entradas=[];
-$numero_entradas['contador']=0;
-if(session_start()){
-  $numero_entradas['contador']+=1;
-}
-
-
-
-$_SESSION['numero_entradas']=$numero_entradas[0];
+include ("functions.php");
 $email = $_POST['email'];
 $password = md5($_POST['password']);
 $login = $_POST['login'];
@@ -22,35 +12,36 @@ $linha = mysqli_fetch_array($retval);
 $e = $linha['email'];
 $p = $linha['password'];
 $t = $linha['tipo'];
+$nome_user = $linha['nome_user'];
 $idUtilizador=$linha['idUtilizador'];
+
 $_SESSION['idUtilizador']= $idUtilizador;
-$nome_user=$linha['nome_user'];
 $_SESSION['nome_user']= $nome_user;
-echo $e.'<br>';
-echo $p.'<br>';
-echo $t;
+$id_user=$_SESSION['idUtilizador'];
+$_SESSION['user_name']=$user_name;
+$_SESSION['nr_visitas']=0;
 if ( $email==$e && $password == $p)	{
-    if( $t=="admin" ) {
+  onlineUser();
 
-        $_SESSION['login'] = $email;
-        header ('Location: inicio.php');
-    }
-    if( $t=="prof_saude" ) {
+            $_SESSION['login'] = $email;
+        if(verHash()==$id_user){
+          header ('Location: inicio.php');
+        }else {
+          if($t=="estudante"){
+            header ('Location:registar_dados_e.php');
+          }else if($t=="prof_saude"){
+            header ('Location:registar_dados_ps.php');
+          }elseif ($t=="professor"){
+            header ('Location:dados_prof.php');
+          }elseif ($t=="admin"){
+            header ('Location: inicio.php');
+            }
+        }
 
-        $_SESSION['login'] = $email;
-        header ('Location: inicio.php');
-    }
-    if( $t=="professor" ) {
-
-        $_SESSION['login'] = $email;
-        header ('Location: inicio.php');
-    }
-    if( $t=="estudante" ) {
-
-        $_SESSION['login'] = $email;
-        header ('Location: logE.php');
-    }
+}else{
+  echo "<script>alert('E-mail ou Password incorretos!');top.location.href='login.html';</script>";
 }
-else echo "<script>alert('E-mail ou Password incorretos!');top.location.href='login.html';</script>";
+
+
 mysqli_close($conn);
 ?>
