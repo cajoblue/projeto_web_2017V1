@@ -1,3 +1,4 @@
+<?php include 'functions.php'; ?>
 <!DOCTYPE HTML >
 <html>
 <head>
@@ -11,8 +12,7 @@
   <div id="header">
     <a href="inicio.php" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
     <div class="topblock2">
-      <h4>Administrador</h4>
-      <h3><?php session_start();
+      <h3><?php
         $email = $_SESSION['login'];
         echo $email; ?></h3>
     </div>
@@ -25,22 +25,21 @@
       <div id="content">
         <h1>Artigos</h1>
         <div id="content">
-
           <?php
-          $id=$_GET['id'];
-          echo " <br> <a href='sub_categorias.php?id=".$id."'><button>Voltar Atrás</button></a>";
+           $id=$_GET['id'];
+         echo " <br> <a href='sub_categorias.php?id=".$id."'><button>Voltar Atrás</button></a>";
 
-          echo"  <form action='adicionar_nova_subcategoria.php?id=".$id."' method='POST'>"; ?>
-            <p>Nome da sub-Categoria:</p>
-            <input type="text" name="nome" value=""><br>
-            <input type="submit"  value="Registar">
-          <?php echo"   </form>"; ?>
+           echo"  <form action='adicionar_nova_subcategoria.php?id=".$id."' method='POST'>"; ?>
+             <p>Nome da sub-Categoria:</p>
+             <input type="text" name="nome" value=""><br>
+             <input type="submit"  value="Registar">
+           <?php echo"   </form>"; ?>
 
         </div>
       </div>
     </div>
 
-    <?php include('geral_bar.php'); ?>
+    <?php include('barra_lateral.php'); ?>
     <div class="blocks">
 
     </div>

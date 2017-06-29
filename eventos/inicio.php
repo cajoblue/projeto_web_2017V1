@@ -18,6 +18,8 @@
             showImage(index);
         }
 
+
+
         showImage(1);
 
         function showImage(n){
@@ -47,6 +49,9 @@
 
 
     </script>
+
+
+
 
 </head>
 

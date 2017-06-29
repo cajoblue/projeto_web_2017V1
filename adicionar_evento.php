@@ -1,19 +1,28 @@
 <?php
 include('conexao.php');
-session_start();
-
-
-// get data that sent from form
-$user_id=$_SESSION['idUtilizador'];
-$id_subcategoria=$_GET['id'];
-$id_sub=$_GET['id_sub'];
-$topic=$_POST['topic'];
-$detail=$_POST['detail'];
-$destino = 'images/' . $_FILES['arquivo']['name'];
-$data_rege=date("d/m/y h:i:s"); //create date time
-
+include ('functions.php');
 // Cria uma variável que terá os dados do erro
 $erro = false;
+
+// get data that sent from form
+$name=$_POST['nome'];
+$detail=$_POST['detail'];
+
+$destino = 'images/' . $_FILES['arquivo']['name'];
+$datetime=date("d/m/y h:i:s"); //create date time
+$user_id=$_SESSION['idUtilizador'];
+
+if(!preg_match("/^[0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÇÈÉÊÌÍÒÓÔÕÙÚÛàáâãçèéêìíîòóôõùúû ]+$/", $name)){
+  die;
+  echo "<script>alert('Erro, valores não compativeis com os definidos!');top.location.href='novo_evento.php';</script>";
+}
+
+// Verifica se $email realmente existe e se é um email.
+if ( ( ! isset( $email ) || ! filter_var( $email, FILTER_VALIDATE_EMAIL ) ) && !$erro ) {
+    $erro = 'Envie um email válido.';
+
+}
+
 
     // verifica se foi enviado um arquivo
     if ( isset( $_FILES[ 'arquivo' ][ 'name' ] ) && $_FILES[ 'arquivo' ][ 'error' ] == 0 ) {
@@ -45,25 +54,26 @@ $erro = false;
             }
             else
                 echo 'Erro ao salvar o arquivo. Aparentemente você não tem permissão de escrita.<br />';
+die;
         }
         else
             echo 'Você poderá enviar apenas arquivos "*.jpg;*.jpeg;*.gif;*.png"<br />';
+            die;
     }
     else
         echo '';
 
-//insere comentario
-    $sql="INSERT INTO forum_question (id_login,id_sub,id_subcategoria,topic,detail,data_reg,imagem,fk_subcategoria) VALUES('$user_id','$id_subcategoria','$id_sub','$topic', '$detail', '$data_rege', '$destino','$id_subcategoria')";
+    $sql="INSERT INTO eventos (nome, datetime, descricao, imagem, id_login)VALUES('$name', '$datetime', '$detail', '$destino', '$user_id')";
     $result=mysqli_query($conn,$sql);
 
+
     if($result){
-        echo "<script>alert('O seu tópico foi criado com sucesso!');top.location.href='menu_topico_forum.php?id=".$id_subcategoria."&id_sub=".$id_sub."';</script>";
-    }
-    else {
-        echo "ERROR";
+        echo "<script>alert('O seu evento foi criado com sucesso!');top.location.href='eventos.php';</script>";
+    }else {
+        echo "<script>alert('Erro, valores não compativeis com os definidos!');top.location.href='novo_evento.php';</script>";
     }
 
 
-mysqli_close($conn);
+    mysqli_close($conn);
 
 ?>

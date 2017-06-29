@@ -15,7 +15,7 @@ if(empty($nome) || !preg_match("/^[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrs
     $result2 = mysqli_query($conn, $sql2);
 
     if ($result2) {
-        echo "<script>alert('Registado com sucesso!');top.location.href='sub_categorias.php';</script>";
+        echo "<script>alert('Registado com sucesso!');top.location.href='sub_categorias.php?id=" . $id_categoria . "';</script>";
 
 
 // Fechar conexão

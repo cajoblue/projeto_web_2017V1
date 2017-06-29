@@ -9,7 +9,7 @@
 
 <body>
 <div id="header">
-    <a href="inicio.php" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
+    <a href="inicio.html" class="float"><img src="images/teenpower.png" alt="" width="171" height="73" /></a>
     <div class="topblock2">
         <h3>Administrador</h3>
         <h3><?php session_start();
@@ -26,7 +26,10 @@
 <h2>Criar Novo Tópico</h2>
 <?php
   $id=$_GET['id'];
-  echo"  <form id='form1' name='form1' enctype='multipart/form-data'  action='adicionar_topico_forum.php?id=".$id."' method='POST'>"; ?>
+$id_sub=$_GET['id_sub'];
+
+
+  echo"  <form enctype='multipart/form-data'  action='adicionar_topico_forum.php?id=".$id."&id_sub=".$id_sub."' method='POST'  >"; ?>
 <table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
                     <tr>
                         <td colspan="3" bgcolor="#E6E6E6"><strong>Tópico</strong> </td>
@@ -42,15 +45,16 @@
                     </tr>
                     <tr>
                         <td valign="top"><strong>Selecione uma imagem:</strong></td>
-                        <td><input name="arquivo" type="file"></textarea></td>
+                        <td><input type="file"  name="arquivo"></textarea></td>
                     </tr>
 
                     <tr>
-                        <td><input type="submit" name="Submit" value="Registar" /> <input type="reset" name="Submit2" value="Apagar" /></td>
+                        <td><input type="submit" name="Submit" value="Registar" />
+                            <input type="reset" name="Submit2" value="Apagar" /></td>
                     </tr>
                 </table>
-<?php echo"   </form>"; ?>
-    <br> <a href="menu_forum.php"><button>Voltar Atrás</button></a>
+<?php echo"   </form>";
+    echo "<br> <a href='menu_topico_forum.php?id=".$id."&id_sub=".$id_sub."'><button>Voltar Atrás</button></a>";?>
 
 </div></div>
 <br>

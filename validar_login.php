@@ -18,12 +18,11 @@ $idUtilizador=$linha['idUtilizador'];
 $_SESSION['idUtilizador']= $idUtilizador;
 $_SESSION['nome_user']= $nome_user;
 $id_user=$_SESSION['idUtilizador'];
-$_SESSION['user_name']=$user_name;
-$_SESSION['nr_visitas']=0;
+$_SESSION['user_name']=$nome_user;
 if ( $email==$e && $password == $p)	{
   onlineUser();
 
-            $_SESSION['login'] = $email;
+            $_SESSION['login'] = $nome_user;
         if(verHash()==$id_user){
           header ('Location: inicio.php');
         }else {
